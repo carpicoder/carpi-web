@@ -1,0 +1,397 @@
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Rubik:wght@400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    scroll-behavior: smooth;
+    --ff-title: 'Dela Gothic One', sans-serif;
+    --ff-text: 'Rubik', sans-serif;
+    --clr-black: #1c1c1c;
+    --clr-white: #ececec;
+    --clr-discord: #5865F2;
+    --bg-noise: url("../img/noise.png");
+}
+
+body {
+	background-color: var(--clr-white);
+    background-image: var(--bg-noise);
+    color: var(--clr-black);
+    font-family: var(--ff-text);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style-type: none;
+}
+
+h1, h2, h3 {
+    font-family: var(--ff-title);
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-inline: 3rem;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem;
+    padding-bottom: 0;
+}
+
+.logo {
+    max-width: 5rem;
+}
+
+.nav-list {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 2px;
+    background-color: var(--clr-black);
+    transform: scaleX(0);
+    transition: .2s;
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1);
+}
+
+.nav-link-bold {
+    font-weight: 500;
+}
+
+.quien-soy-inner {
+    display: grid;
+    grid-template-columns: .35fr 1fr;
+    grid-template-areas:
+        "foto titulo"
+        "foto texto";
+    padding-block: 3rem;
+    column-gap: 2rem;
+    row-gap: 1rem;
+}
+
+.quien-soy-foto {
+    grid-area: foto;
+	background-color: var(--clr-black);
+    background-image: var(--bg-noise);
+    border-radius: 1rem;
+    transform: scale(.9);
+    align-self: start;
+}
+
+.quien-soy-foto img {
+    max-width: 100%;
+    transform: scale(1.2);
+    border-radius: 1rem;
+}
+
+.quien-soy-title {
+    grid-area: titulo;
+    font-size: 3rem;
+    line-height: 1.1;
+}
+
+.quien-soy-text {
+    grid-area: texto;
+    font-size: 1.2rem;
+    line-height: 1.3;
+}
+
+.section {
+    padding-block: 4rem;
+}
+
+.section-dark {
+	background-color: var(--clr-black);
+    background-image: var(--bg-noise);
+    color: var(--clr-white);
+}
+
+.section-discord {
+	background-color: var(--clr-discord);
+    background-image: var(--bg-noise);
+}
+
+.section-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+}
+
+.section-title {
+    font-size: 3rem;
+}
+
+.section-text {
+    font-size: 1.2rem;
+}
+
+.btns {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    padding: .5rem 1rem;
+    font-weight: 500;
+    display: flex;
+    gap: .5rem;
+    position: relative;
+    transition: .2s;
+    isolation: isolate;
+}
+
+.btn:hover {
+    color: var(--clr-white);
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: var(--clr-black);
+    transition: .2s;
+    z-index: -1;
+}
+
+.btn:hover::after {
+    height: 100%;
+}
+
+.section-dark .btn:hover {
+    color: var(--clr-black);
+}
+
+.section-dark .btn::after {
+    background-color: var(--clr-white);
+}
+
+.social {
+    display: flex;
+    gap: 1rem;
+}
+
+.social i {
+    font-size: 2rem;
+}
+
+
+
+/*** MOBILE MENU ***/
+
+button {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+}
+
+.close-menu, .open-menu {
+    display: none;
+}
+
+.class {
+    margin-top: 2rem;
+    border-top: 0.25rem solid var(--clr-black);
+    width: 100%;
+}
+
+.class-title {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+
+.videitos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.videito {
+    background-color: var(--clr-black);
+    padding: 1rem;
+    border-radius: 1rem;
+    color: var(--clr-white);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.videito:first-child {
+    background-color: var(--clr-discord);
+}
+
+.videito.recomendado {
+    position: relative;
+}
+
+.videito.recomendado::before {
+    content: 'Súper recomendado 🔥';
+    background-color: var(--clr-discord);
+    position: absolute;
+    padding: .5rem .75rem;
+    border-radius: .5rem;
+    bottom: 0;
+    right: 0;
+    transform: translateY(50%) translateX(-.5rem);
+    line-height: 1;
+}
+
+.videito iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    border-radius: .5rem;
+}
+
+.videito-text {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
+    align-items: start;
+}
+
+.videito-text > a {
+    font-size: .85rem;
+}
+
+.videito-text > a > i {
+    font-size: .75rem;
+}
+
+
+.videito-text > a:hover {
+    text-decoration: underline;
+}
+
+.videito-thumbnail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.thumbnail-imagen {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    border-radius: .5rem;
+    object-fit: cover;
+}
+
+.thumbnail-play {
+    width: 4rem;
+    position: absolute;
+}
+
+
+
+
+
+@media screen and (max-width: 800px) {
+    .quien-soy-inner {
+        grid-template-areas:
+            "foto titulo"
+            "texto texto";
+    }
+
+    .quien-soy-title {
+        align-self: end;
+    }
+
+    .nav-list {
+        position: fixed;
+        inset: 0;
+		background-color: var(--clr-white);
+        background-image: var(--bg-noise);
+        flex-direction: column;
+        text-align: right;
+        padding: 2rem;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        gap: 2rem;
+        transform: translateX(100%);
+        visibility: hidden;
+        opacity: 0;
+        transition: .2s;
+    }
+
+    .nav-list.active {
+        transform: translateX(0);
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .nav-link {
+        font-size: 1.6rem;
+    }
+
+    .close-menu {
+        display: block;
+        position: absolute;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+
+    .open-menu {
+        display: block;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width: 690px) {
+    .container {
+        padding-inline: 1.5rem;
+    }
+
+    .quien-soy-inner {
+        padding-block: 0;
+    }
+    
+    .quien-soy-inner {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .quien-soy-foto img {
+        transform: scale(1.1);
+    }
+
+    .quien-soy-title {
+        font-size: 2.4rem;
+    }
+
+    .videitos {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
