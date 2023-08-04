@@ -88,7 +88,8 @@ h1, h2, h3 {
     grid-template-columns: .35fr 1fr;
     grid-template-areas:
         "foto titulo"
-        "foto texto";
+        "foto texto"
+        "info-canal info-canal";
     padding-block: 3rem;
     column-gap: 2rem;
     row-gap: 1rem;
@@ -119,6 +120,23 @@ h1, h2, h3 {
     grid-area: texto;
     font-size: 1.2rem;
     line-height: 1.3;
+}
+
+
+.info-canal {
+    grid-area: info-canal;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.info-canal .numero {
+    font-family: var(--ff-title);
+    font-size: 4rem;
+}
+
+.info-canal .texto {
+    margin-top: -.5rem;
 }
 
 .section {
@@ -205,6 +223,8 @@ h1, h2, h3 {
 
 
 
+
+
 /*** MOBILE MENU ***/
 
 button {
@@ -216,6 +236,9 @@ button {
 .close-menu, .open-menu {
     display: none;
 }
+
+
+/*** VIDEITOS CLASES ***/
 
 .class {
     margin-top: 2rem;
@@ -314,12 +337,12 @@ button {
 
 
 
-
 @media screen and (max-width: 800px) {
     .quien-soy-inner {
         grid-template-areas:
             "foto titulo"
-            "texto texto";
+            "texto texto"
+            "info-canal info-canal";
     }
 
     .quien-soy-title {
@@ -378,8 +401,19 @@ button {
     }
     
     .quien-soy-inner {
-        display: flex;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "titulo titulo"
+            "foto info-canal"
+            "texto texto";
+    }
+
+    .info-canal {
         flex-direction: column;
+    }
+
+    .info-canal .numero {
+        font-size: 2rem;
     }
 
     .quien-soy-foto img {
@@ -387,7 +421,7 @@ button {
     }
 
     .quien-soy-title {
-        font-size: 2.4rem;
+        font-size: 2rem;
     }
 
     .videitos {
