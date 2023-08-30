@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Rubik:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,200;10..48,300;10..48,400;10..48,500;10..48,600;10..48,700;10..48,800&display=swap');
 
 * {
     margin: 0;
@@ -8,17 +9,16 @@
 
 :root {
     scroll-behavior: smooth;
-    --ff-title: 'Dela Gothic One', sans-serif;
+    --ff-title: 'Bricolage Grotesque', sans-serif;
     --ff-text: 'Rubik', sans-serif;
     --clr-black: #1c1c1c;
     --clr-white: #ececec;
     --clr-discord: #5865F2;
-    --bg-noise: url("../img/noise.png");
+    --clr-secondary: #b2f344;
 }
 
 body {
 	background-color: var(--clr-white);
-    background-image: var(--bg-noise);
     color: var(--clr-black);
     font-family: var(--ff-text);
 }
@@ -37,7 +37,7 @@ h1, h2, h3 {
 }
 
 .container {
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
     padding-inline: 3rem;
 }
@@ -85,7 +85,7 @@ h1, h2, h3 {
 
 .quien-soy-inner {
     display: grid;
-    grid-template-columns: .35fr 1fr;
+    grid-template-columns: .25fr 1fr;
     grid-template-areas:
         "foto titulo"
         "foto texto"
@@ -97,23 +97,30 @@ h1, h2, h3 {
 
 .quien-soy-foto {
     grid-area: foto;
-	background-color: var(--clr-black);
-    background-image: var(--bg-noise);
-    border-radius: 1rem;
-    transform: scale(.9);
     align-self: start;
+    position: relative;
+}
+
+.quien-soy-foto-fondo {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+	background-color: var(--clr-secondary);
+    border-radius: 1rem;
 }
 
 .quien-soy-foto img {
     max-width: 100%;
-    transform: scale(1.2);
     border-radius: 1rem;
 }
 
+
 .quien-soy-title {
     grid-area: titulo;
-    font-size: 3rem;
-    line-height: 1.1;
+    font-size: 5rem;
+    line-height: .85;
+    font-weight: 800;
 }
 
 .quien-soy-text {
@@ -132,26 +139,28 @@ h1, h2, h3 {
 
 .info-canal .numero {
     font-family: var(--ff-title);
-    font-size: 4rem;
+    font-size: 6rem;
+    font-weight: 500,
 }
 
 .info-canal .texto {
-    margin-top: -.5rem;
+    margin-top: -1rem;
 }
 
 .section {
     padding-block: 4rem;
+    margin-inline: 2rem;
+    margin-bottom: 3rem;
+    border-radius: 1rem;
 }
 
 .section-dark {
 	background-color: var(--clr-black);
-    background-image: var(--bg-noise);
     color: var(--clr-white);
 }
 
 .section-discord {
 	background-color: var(--clr-discord);
-    background-image: var(--bg-noise);
 }
 
 .section-inner {
@@ -161,12 +170,16 @@ h1, h2, h3 {
     gap: 1rem;
 }
 
-.section-title {
-    font-size: 3rem;
+.section-title, .footer-title {
+    font-size: 5rem;
 }
 
 .section-text {
     font-size: 1.2rem;
+}
+
+.footer {
+    padding-block: 4rem;
 }
 
 .btns {
@@ -217,8 +230,16 @@ h1, h2, h3 {
     gap: 1rem;
 }
 
-.social i {
-    font-size: 2rem;
+.social a {
+    font-size: 3rem;
+    transition-property: transform, color;
+    transition-duration: .2s, .5s;
+    transition-delay: 0s, .1s;
+}
+
+.social a:hover {
+    transform: scale(1.2);
+    color: var(--clr-secondary);
 }
 
 
@@ -334,6 +355,17 @@ button {
     position: absolute;
 }
 
+.loader {
+    display: flex;
+    position: fixed;
+    inset: 0;
+}
+
+.loader-bar {
+    flex: 1;
+    background-color: var(--clr-secondary);
+}
+
 
 
 
@@ -353,7 +385,6 @@ button {
         position: fixed;
         inset: 0;
 		background-color: var(--clr-white);
-        background-image: var(--bg-noise);
         flex-direction: column;
         text-align: right;
         padding: 2rem;
