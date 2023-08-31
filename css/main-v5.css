@@ -166,6 +166,10 @@ h1, h2, h3 {
     border-radius: 1rem;
 }
 
+.section#quien-soy {
+    margin-inline: 0;
+}
+
 .section-dark {
 	background-color: var(--clr-black);
     color: var(--clr-white);
@@ -197,6 +201,7 @@ h1, h2, h3 {
 .btns {
     display: flex;
     gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .btn {
@@ -242,6 +247,7 @@ h1, h2, h3 {
 .social {
     display: flex;
     gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .social a {
@@ -383,8 +389,9 @@ button {
 
 
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
     .quien-soy-inner {
+        grid-template-columns: .35fr 1fr;
         grid-template-areas:
             "foto titulo"
             "texto texto"
@@ -393,6 +400,7 @@ button {
 
     .quien-soy-title {
         align-self: end;
+        font-size: 4rem;
     }
 
     .nav-list {
@@ -434,6 +442,17 @@ button {
         font-size: 2rem;
         cursor: pointer;
     }
+
+    .section {
+        padding-block: 2rem;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .quien-soy-title {
+        font-size: 3rem;
+        align-self: center;
+    }
 }
 
 @media screen and (max-width: 690px) {
@@ -458,7 +477,7 @@ button {
     }
 
     .info-canal .numero {
-        font-size: 2rem;
+        font-size: 4.5rem;
     }
 
     .quien-soy-foto img {
@@ -466,11 +485,67 @@ button {
     }
 
     .quien-soy-title {
-        font-size: 2rem;
+        font-size: 4rem;
     }
 
     .videitos {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .info-canal .numero {
+        font-size: 4rem;
+    }
+
+    .section-title, .footer-title {
+        font-size: 3rem;
+    }
+
+    .social a {
+        font-size: 2.5rem;
+    }
+}
+
+
+
+@media screen and (max-width: 500px) {
+    .quien-soy-title {
+        font-size: 3rem;
+    }
+    .info-canal .numero {
+        font-size: 3.5rem;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .info-canal .numero {
+        font-size: 3rem;
+    }
+}
+
+
+@media screen and (max-width: 400px) {
+    .quien-soy-title {
+        font-size: 2.5rem;
+    }
+    .info-canal .numero {
+        font-size: 2.5rem;
+    }
+    .info-canal .texto {
+        margin-top: -.5rem;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .quien-soy-title {
+        font-size: 2rem;
+    }
+    .info-canal .numero {
+        font-size: 2rem;
+    }
+    .info-canal .texto {
+        font-size: .75rem;
     }
 }
