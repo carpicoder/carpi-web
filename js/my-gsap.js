@@ -28,6 +28,7 @@ gsap.set(heroTitleText.chars, {
 gsap.to(heroTitleText.chars, {
     opacity: 1,
     translateY: 0,
+    ease: "back.out(2)",
     stagger: .009,
     delay: .5
 });
@@ -55,7 +56,7 @@ heroTitleText.chars.forEach((letra) => {
             translateX: 0,
             delay: 0.5,
             duration: .7,
-            ease: "back.out",
+            ease: "back.out(4)",
         })
         gsap.to(letra, {
             color: docStyle.getPropertyValue("--clr-black"),
@@ -93,6 +94,7 @@ gsap.from(".nav-item", {
     translateY: -100,
     opacity: 0,
     delay: .75,
+    ease: "back.out(1)",
     stagger: {
         amount: .1,
     }
@@ -111,7 +113,8 @@ gsap.to(logoText.chars, {
     opacity: 1,
     translateY: 0,
     stagger: .01,
-    delay: 1
+    ease: "back.out(3)",
+    delay: 1,
 });
 
 logoText.chars.forEach((letra) => {
@@ -127,6 +130,7 @@ logoText.chars.forEach((letra) => {
         gsap.to(letra, {
             translateY: 0,
             delay: .3,
+            ease: "back.out(5)",
         })
     })
     if (letra.textContent !== ".") {
@@ -143,6 +147,7 @@ gsap.from(".info-canal-stat", {
     translateY: 100,
     opacity: 0,
     delay: 1,
+    ease: "back.out(2)",
     stagger: {
         amount: .5,
     }
@@ -155,7 +160,7 @@ gsap.set(quienSoyFondo, {
 gsap.from(quienSoyFondo, 1, {
     scaleX: 0,
     delay: 1.25,
-    ease: "back.out",
+    ease: "back.out(4)",
 })
 
 const quienSoyFoto = document.querySelector(".quien-soy-foto-foto");
@@ -163,7 +168,7 @@ gsap.from(quienSoyFoto, .4, {
     scale: 0,
     opacity: 0,
     delay: 1.25,
-    ease: "back.out",
+    ease: "back.out(1.5)",
 });
 
 let rotateDegree;
@@ -174,7 +179,7 @@ quienSoyFoto.addEventListener("mouseenter", () => {
     gsap.to(quienSoyFoto, .4, {
         scale: 1.2,
         rotate: rotateDegree,
-        ease: "back.out",
+        ease: "back.out(4)",
     })
 });
 quienSoyFoto.addEventListener("mouseleave", () => {
@@ -191,7 +196,7 @@ quienSoyFoto.addEventListener("mouseenter", () => {
         rotate: (rotateDegree + 180) * -1,
         delay: .1,
         borderRadius: "3rem",
-        ease: "back.out",
+        ease: "back.out(4)",
     })
 });
 quienSoyFoto.addEventListener("mouseleave", () => {
@@ -200,7 +205,7 @@ quienSoyFoto.addEventListener("mouseleave", () => {
         rotate: 0,
         delay: .2,
         borderRadius: "1rem",
-        ease: "back.out",
+        ease: "back.out(4)",
     })
 });
 
