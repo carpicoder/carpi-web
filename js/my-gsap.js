@@ -66,6 +66,8 @@ heroTitleText.chars.forEach((letra) => {
     })
 })
 
+console.log(Math.random() * (3 - 1.5) + 1.5);
+
 
 
 const heroText = document.querySelector(".quien-soy-text");
@@ -95,15 +97,48 @@ gsap.from(".nav-item", {
         amount: .1,
     }
 })
-gsap.from(".logo", {
-    translateX: -200,
-    translateY: -100,
+
+const logo = document.querySelector(".logo");
+const logoText = new SplitType(logo, {
+    types: "chars, words",
+    charClass: "logo-letter"
+})
+gsap.set(logoText.chars, {
     opacity: 0,
-    delay: .75,
-    stagger: {
-        amount: .1,
+    translateY: -100,
+});
+gsap.to(logoText.chars, {
+    opacity: 1,
+    translateY: 0,
+    stagger: .01,
+    delay: 1
+});
+
+logoText.chars.forEach((letra) => {
+    letra.addEventListener("mouseenter", () => {
+        gsap.to(letra, {
+            translateY: -10,
+            duration: .5,
+            ease: "back.out",
+            color: docStyle.getPropertyValue("--clr-secondary")
+        })
+    })
+    letra.addEventListener("mouseleave", () => {
+        gsap.to(letra, {
+            translateY: 0,
+            delay: .3,
+        })
+    })
+    if (letra.textContent !== ".") {
+        letra.addEventListener("mouseleave", () => {
+            gsap.to(letra, {
+                color: docStyle.getPropertyValue("--clr-black"),
+                delay: .75,
+            })
+        })
     }
 })
+
 gsap.from(".info-canal-stat", {
     translateY: 100,
     opacity: 0,
@@ -131,10 +166,14 @@ gsap.from(quienSoyFoto, .4, {
     ease: "back.out",
 });
 
+let rotateDegree;
+
 quienSoyFoto.addEventListener("mouseenter", () => {
+    rotateDegree = Math.random() * 20 - 10;
+
     gsap.to(quienSoyFoto, .4, {
         scale: 1.2,
-        rotate: -10,
+        rotate: rotateDegree,
         ease: "back.out",
     })
 });
@@ -149,8 +188,9 @@ quienSoyFoto.addEventListener("mouseleave", () => {
 quienSoyFoto.addEventListener("mouseenter", () => {
     gsap.to(quienSoyFondo, .5, {
         scale: 0.7,
-        rotate: 10,
+        rotate: (rotateDegree + 180) * -1,
         delay: .1,
+        borderRadius: "3rem",
         ease: "back.out",
     })
 });
@@ -159,6 +199,7 @@ quienSoyFoto.addEventListener("mouseleave", () => {
         scale: .9,
         rotate: 0,
         delay: .2,
+        borderRadius: "1rem",
         ease: "back.out",
     })
 });
