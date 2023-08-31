@@ -67,8 +67,6 @@ heroTitleText.chars.forEach((letra) => {
     })
 })
 
-console.log(Math.random() * (3 - 1.5) + 1.5);
-
 
 
 const heroText = document.querySelector(".quien-soy-text");
@@ -173,7 +171,7 @@ gsap.from(quienSoyFoto, .4, {
 
 let rotateDegree;
 
-quienSoyFoto.addEventListener("mouseenter", () => {
+quienSoyFoto && quienSoyFoto.addEventListener("mouseenter", () => {
     rotateDegree = Math.random() * 20 - 10;
 
     gsap.to(quienSoyFoto, .4, {
@@ -182,7 +180,7 @@ quienSoyFoto.addEventListener("mouseenter", () => {
         ease: "back.out(4)",
     })
 });
-quienSoyFoto.addEventListener("mouseleave", () => {
+quienSoyFoto && quienSoyFoto.addEventListener("mouseleave", () => {
     gsap.to(quienSoyFoto, .4, {
         scale: 1,
         rotate: 0,
@@ -190,7 +188,7 @@ quienSoyFoto.addEventListener("mouseleave", () => {
     })
 });
 
-quienSoyFoto.addEventListener("mouseenter", () => {
+quienSoyFoto && quienSoyFoto.addEventListener("mouseenter", () => {
     gsap.to(quienSoyFondo, .5, {
         scale: 0.7,
         rotate: (rotateDegree + 180) * -1,
@@ -199,7 +197,7 @@ quienSoyFoto.addEventListener("mouseenter", () => {
         ease: "back.out(4)",
     })
 });
-quienSoyFoto.addEventListener("mouseleave", () => {
+quienSoyFoto && quienSoyFoto.addEventListener("mouseleave", () => {
     gsap.to(quienSoyFondo, .4, {
         scale: .9,
         rotate: 0,
@@ -237,9 +235,10 @@ sectionTitles.forEach((char, i) => {
           trigger: char.parentNode.parentNode.parentNode,
           start: 'top bottom',
           end: 'bottom bottom',
-          scrub: isMobile ? false : true,
+          scrub: (isMobile || char.classList.contains("videitos-title")) ? false : true,
         }
       });
+      
 
       text.chars.forEach((letra) => {
           letra.addEventListener("mouseenter", () => {
@@ -317,6 +316,25 @@ gsap.to(footerTitleText.chars, {
       scrub: false,
     }
 });
+
+const videitos = document.querySelectorAll(".videito");
+
+videitos.forEach((videito) => {
+    gsap.from(videito, {
+        opacity: 0,
+        translateY: -100,
+        duration: 0.5,
+        stagger: 1,
+        scrollTrigger: {
+          trigger: videito.parentNode,
+          start: 'top 50%',
+          end: 'bottom 50%',
+          scrub: false,
+          markers: true
+        }
+    })
+})
+
 
 
 

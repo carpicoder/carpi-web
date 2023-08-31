@@ -15,13 +15,13 @@
 	<meta property="og:image" content="https://carpicoder.com/img/og-image.png" />
 	<meta property="og:description" content="Videítos de apoyo a las clases de Coderhouse.">
 	
-    <link rel="stylesheet" href="./css/main-v5.css">
+    <link rel="stylesheet" href="./css/main-v6.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 </head>
 <body>
 
     <header class="main-header">
-        <a href="./index.html"><img class="logo" src="./img/logo-black.png" alt="Logo"></a>
+        <a href="./index.html" class="logo">CarpiCoder<span class="punto">.</span></a>
         <nav class="nav-menu">
             <button class="open-menu" id="open-menu"><i class="bi bi-list"></i></button>
             <ul class="nav-list" id="nav-list">
@@ -35,7 +35,7 @@
         <section id="videitos-de-apoyo" class="section">
             <div class="container">
                 <div class="section-inner">
-                    <h2 class="section-title">Videítos de apoyo a las clases</h2>
+                    <h2 class="section-title videitos-title">Videítos de apoyo a las clases</h2>
                     <article class="class">
                         <h3 class="class-title">Clase 0: <span>Introducción al Desarrollo Web</span></h3>
                         <div class="videitos">
@@ -462,7 +462,17 @@
             </div>
         </div>
     </footer>
+
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/CSSRulePlugin.min.js" integrity="sha512-+35N1KBHwTDnFOBSqO2nm/qsf5okaS74sUZu/rT/wlvuAfJ1hrAoGlWZip2l1LHB1q2i8B2k84Pb/NrC38bv8Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" integrity="sha512-Ic9xkERjyZ1xgJ5svx3y0u3xrvfT/uPkV99LBwe68xjy/mGtO+4eURHZBW2xW4SZbFrF1Tf090XqB+EVgXnVjw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- SPLIT TYPE -->
+    <script src="https://unpkg.com/split-type"></script>
     
-    <script src="./js/main-v3.js"></script>
+    <script src="./js/my-gsap.js"></script>
+    <script src="./js/main-v4.js"></script>
 </body>
 </html>
