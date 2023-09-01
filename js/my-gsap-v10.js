@@ -391,5 +391,31 @@ ScrollTrigger.create({
 gsap.set(".skewElem", {transformOrigin: "right center", force3D: true});
 
 
+const allLinks = document.querySelectorAll('a:not([href^="#"])');
+allLinks.forEach((link) => {
+
+    link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const targetUrl = link.getAttribute("href");
+
+        gsap.to(".loader", {
+            display: "flex"
+        })
+        // LOADER
+        gsap.to(".loader-bar", {
+            scaleY: 1,
+            stagger: {
+                amount: .1,
+                from: "center"
+            },
+        })
+
+        setTimeout(function() {
+            window.location.href = targetUrl;
+        }, 1000); 
+    })
+
+})
+
          
 })}})
