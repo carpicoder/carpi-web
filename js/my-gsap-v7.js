@@ -86,6 +86,11 @@ gsap.to(heroTextText.lines, {
 });
 
 
+gsap.from(".main-header", {
+    scaleX: 0,
+    ease: "back.out(1)",
+    delay: .25,
+})
 
 gsap.from(".nav-item", {
     translateX: 200,
@@ -255,7 +260,8 @@ sectionTitles.forEach((char, i) => {
                   translateY: 0,
                   rotateZ: 0,
                   translateX: 0,
-                  delay: .3
+                  delay: .3,
+                  ease: "back.out(3)",
               })
           })
       })
@@ -317,25 +323,72 @@ gsap.to(footerTitleText.chars, {
     }
 });
 
-const videitos = document.querySelectorAll(".videito");
 
-videitos.forEach((videito) => {
-    gsap.from(videito, {
-        opacity: 0,
-        translateY: -100,
-        duration: 0.5,
-        stagger: 1,
+gsap.to(".body", {
+    backgroundColor: docStyle.getPropertyValue("--clr-black"),
+    duration: 10,
+    scrollTrigger: {
+        trigger: "#apoya-mi-contenido",
+        start: "top bottom",
+        end: "top bottom-=200",
+        scrub: true,
+    }
+});
+
+
+const classes = document.querySelectorAll(".class");
+const indiceItems = document.querySelectorAll(".indice-item");
+classes.forEach((clase) => {
+
+    gsap.to(clase, {
         scrollTrigger: {
-          trigger: videito.parentNode,
-          start: 'top 50%',
-          end: 'bottom 50%',
-          scrub: false,
-          markers: true
+            trigger: clase,
+            start: "top 20%",
+            end: "bottom 20%",
+            scrub: true,
+            onEnter: () => {
+                // Agregar la clase cuando se entra en el trigger
+                const claseId = clase.id;
+                indiceItems.forEach(indiceItem => {
+                    indiceItem.classList.remove("active");
+
+                    const itemClase = indiceItem.dataset.clase;
+                    if (claseId === itemClase) indiceItem.classList.add("active");
+                })
+            },
+            onLeaveBack: () => {
+                // Agregar la clase cuando se entra en el trigger
+                const claseId = clase.id;
+                indiceItems.forEach(indiceItem => {
+                    indiceItem.classList.remove("active");
+
+                    const itemClase = indiceItem.dataset.clase;
+                    if (claseId === itemClase) indiceItem.classList.add("active");
+                })
+            },
         }
     })
+
 })
 
 
+let proxy = { skew: 0 },
+    skewSetter = gsap.quickSetter(".skewElem", "skewY", "deg"), // fast
+    clamp = gsap.utils.clamp(-1, 1); // don't let the skew go beyond 20 degrees. 
+
+ScrollTrigger.create({
+  onUpdate: (self) => {
+    let skew = clamp(self.getVelocity() / -300);
+    // only do something if the skew is MORE severe. Remember, we're always tweening back to 0, so if the user slows their scrolling quickly, it's more natural to just let the tween handle that smoothly rather than jumping to the smaller skew.
+    if (Math.abs(skew) > Math.abs(proxy.skew)) {
+      proxy.skew = skew;
+      gsap.to(proxy, {skew: 0, duration: 0.8, ease: "power3", overwrite: true, onUpdate: () => skewSetter(proxy.skew)});
+    }
+  }
+});
+
+// make the right edge "stick" to the scroll bar. force3D: true improves performance
+gsap.set(".skewElem", {transformOrigin: "right center", force3D: true});
 
 
          

@@ -40,3 +40,16 @@ miniaturas.forEach((miniatura) => {
 
 })
 
+const indice = document.querySelector(".indice");
+const indiceBoton = document.querySelector(".indice-boton");
+const indiceCerrar = document.querySelector(".indice-cerrar");
+
+indiceBoton && indiceBoton.addEventListener("click", () => {
+    indice.classList.toggle("active");
+    indiceBoton.classList.toggle("inactive");
+})
+indiceCerrar && indiceCerrar.addEventListener("click", () => {
+    indice.classList.toggle("active");
+    indiceBoton.classList.toggle("inactive");
+})
+
