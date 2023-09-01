@@ -14,6 +14,7 @@
     --clr-black: rgb(28, 28, 28);
     --clr-white: rgb(242, 235, 217);
     --clr-white-transparent: rgba(242, 235, 217, .5);
+    --clr-white-transparent-9: rgba(242, 235, 217, .9);
     --clr-discord: rgb(88, 101, 242);
     --clr-secondary: rgb(255, 60, 0);
     --clr-secondary-transparent: rgba(255, 60, 0, .5);
@@ -57,10 +58,17 @@ h1, h2, h3 {
     padding-block: 1rem;
     position: sticky;
     top: 0;
-    background-color: var(--clr-white-transparent);
+    background-color: var(--clr-white-transparent-9);
     z-index: 99999;
-    backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--clr-secondary);
+}
+
+@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+    .main-header {
+        background-color: var(--clr-white-transparent);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+    }
 }
 
 .logo {
@@ -388,15 +396,22 @@ button {
     position: fixed;
     bottom: 1rem;
     right: 1rem;
-    background-color: var(--clr-white-transparent);
+    background-color: var(--clr-white-transparent-9);
     border: 1px solid var(--clr-secondary);
-    backdrop-filter: blur(10px);
     padding: 2rem;
     padding-top: 3.5rem;
     border-radius: 1rem;
     margin-left: 1rem;
     transform: translateX(calc(100% + 2rem));
     transition: .2s;
+}
+
+@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+    .indice {
+        background-color: var(--clr-white-transparent);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+    }
 }
 
 .indice.active {
@@ -436,9 +451,8 @@ button {
     position: fixed;
     bottom: 1rem;
     right: 1rem;
-    background-color: var(--clr-white-transparent);
+    background-color: var(--clr-white-transparent-9);
     border: 1px solid var(--clr-secondary);
-    backdrop-filter: blur(10px);
     padding: 1rem;
     border-radius: 1rem;
     margin-left: 1rem;
@@ -446,6 +460,15 @@ button {
     font-weight: 600;
     font-family: var(--ff-text);
     transition: .2s;
+    color: var(--clr-black);
+}
+
+@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+    .indice-boton {
+        background-color: var(--clr-white-transparent);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+    }
 }
 
 .indice-boton.inactive {
@@ -456,14 +479,22 @@ button {
     position: absolute;
     top: .5rem;
     right: .5rem;
-    background-color: var(--clr-white-transparent);
+    background-color: var(--clr-white-transparent-9);
     border: 1px solid var(--clr-secondary);
-    backdrop-filter: blur(10px);
     padding: .5rem 1rem;
     border-radius: .5rem;
     cursor: pointer;
     font-weight: 600;
     font-family: var(--ff-text);
+    color: var(--clr-black);
+}
+
+@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+    .indice-cerrar {
+        background-color: var(--clr-white-transparent);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+    }
 }
 
 
@@ -512,8 +543,7 @@ button {
     .nav-list {
         position: fixed;
         inset: 0;
-		background-color: var(--clr-white-transparent);
-        backdrop-filter: blur(10px);
+		background-color: var(--clr-white-transparent-9);
         flex-direction: column;
         text-align: right;
         align-items: end;
@@ -526,6 +556,14 @@ button {
         visibility: hidden;
         opacity: 0;
         transition: .2s;
+    }
+
+    @supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+        .nav-list {
+            background-color: var(--clr-white-transparent);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
     }
 
     .nav-list.active {
@@ -545,12 +583,14 @@ button {
         cursor: pointer;
         left: 1.5rem;
         top: 1.5rem;
+        color: var(--clr-black);
     }
 
     .open-menu {
         display: block;
         font-size: 2rem;
         cursor: pointer;
+        color: var(--clr-black);
     }
 
     .section {
@@ -566,6 +606,11 @@ button {
 }
 
 @media screen and (max-width: 690px) {
+
+    .main-header {
+        padding-inline: 1.5rem;
+    }
+
     .container {
         padding-inline: 1.5rem;
     }
