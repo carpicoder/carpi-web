@@ -180,7 +180,7 @@ let rotateDegree;
 quienSoyFoto && quienSoyFoto.addEventListener("mouseenter", () => {
     rotateDegree = Math.random() * 20 - 10;
 
-    gsap.set(quienSoyFotoFoto, { attr: { src: "./img/carpi-foto-2.png" }, duration: 2 });
+    gsap.set(quienSoyFotoFoto, { attr: { src: "./img/carpi-foto-a-2.png" }, duration: 2 });
 
     gsap.to(quienSoyFoto, .4, {
         scale: 1.2,
@@ -190,7 +190,7 @@ quienSoyFoto && quienSoyFoto.addEventListener("mouseenter", () => {
 });
 quienSoyFoto && quienSoyFoto.addEventListener("mouseleave", () => {
 
-    gsap.set(quienSoyFotoFoto, { attr: { src: "./img/carpi-foto.png" }, duration: .5 });
+    gsap.set(quienSoyFotoFoto, { attr: { src: "./img/carpi-foto-a.png" }, duration: .5 });
 
     gsap.to(quienSoyFoto, .4, {
         scale: 1,
