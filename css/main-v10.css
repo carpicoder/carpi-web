@@ -156,6 +156,27 @@ h1, h2, h3 {
     font-weight: 800;
 }
 
+.quien-soy-title > .word:nth-child(2) {
+    position: relative;
+}
+
+.quien-soy-title > .word:nth-child(2)::before {
+    content: '';
+    position: absolute;
+    left: -.5rem;
+    right: -.5rem;
+    bottom: -1rem;
+    top: 50%;
+    background-color: var(--clr-secondary);
+    transform: scaleY(0);
+    transition: .2s;
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.quien-soy-foto:hover + .quien-soy-title > .word:nth-child(2)::before {
+    transform: scaleY(1);
+}
+
 .quien-soy-text {
     grid-area: texto;
     font-size: 1.2rem;
