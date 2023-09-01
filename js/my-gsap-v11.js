@@ -5,7 +5,7 @@ const docStyle = getComputedStyle(document.documentElement);
 
 // LOADER
 gsap.to(".loader-bar", {
-    scaleY: 0,
+    scaleX: 0,
     stagger: {
         amount: .1,
         from: "center"
@@ -167,6 +167,7 @@ gsap.from(quienSoyFondo, 1, {
 })
 
 const quienSoyFoto = document.querySelector(".quien-soy-foto-foto");
+const quienSoyFotoFoto = document.querySelector(".quien-soy-foto-foto-foto");
 gsap.from(quienSoyFoto, .4, {
     scale: 0,
     opacity: 0,
@@ -179,6 +180,8 @@ let rotateDegree;
 quienSoyFoto && quienSoyFoto.addEventListener("mouseenter", () => {
     rotateDegree = Math.random() * 20 - 10;
 
+    gsap.set(quienSoyFotoFoto, { attr: { src: "./img/carpi-foto-2.png" }, duration: 2 });
+
     gsap.to(quienSoyFoto, .4, {
         scale: 1.2,
         rotate: rotateDegree,
@@ -186,6 +189,9 @@ quienSoyFoto && quienSoyFoto.addEventListener("mouseenter", () => {
     })
 });
 quienSoyFoto && quienSoyFoto.addEventListener("mouseleave", () => {
+
+    gsap.set(quienSoyFotoFoto, { attr: { src: "./img/carpi-foto.png" }, duration: .5 });
+
     gsap.to(quienSoyFoto, .4, {
         scale: 1,
         rotate: 0,
@@ -403,7 +409,7 @@ allLinks.forEach((link) => {
         })
         // LOADER
         gsap.to(".loader-bar", {
-            scaleY: 1,
+            scaleX: 1,
             stagger: {
                 amount: .1,
                 from: "center"
@@ -412,7 +418,7 @@ allLinks.forEach((link) => {
 
         setTimeout(function() {
             window.location.href = targetUrl;
-        }, 1000); 
+        }, 500); 
     })
 
 })

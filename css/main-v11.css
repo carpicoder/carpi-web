@@ -535,6 +535,7 @@ button {
 .loader {
     display: flex;
     position: fixed;
+    flex-direction: column;
     inset: 0;
     z-index: 99999999;
 }
