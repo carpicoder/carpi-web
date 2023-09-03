@@ -245,8 +245,8 @@ sectionTitles.forEach((char, i) => {
         scrollTrigger: {
           trigger: char.parentNode.parentNode.parentNode,
           start: 'top bottom',
-          end: 'bottom bottom',
-          scrub: (isMobile || char.classList.contains("videitos-title")) ? false : true,
+          end: 'top 60%',
+          scrub: true,
         }
       });
       
@@ -296,7 +296,7 @@ allSections.forEach((section) => {
         scrollTrigger: {
           trigger: section,
           start: 'top bottom',
-          end: 'bottom bottom',
+          end: 'top 50%',
           scrub: true,
         }
       });

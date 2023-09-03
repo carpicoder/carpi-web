@@ -13,8 +13,7 @@
     --ff-text: 'Rubik', sans-serif;
     --clr-black: rgb(28, 28, 28);
     --clr-white: rgb(242, 235, 217);
-    --clr-white-transparent: rgba(242, 235, 217, .5);
-    --clr-white-transparent-9: rgba(242, 235, 217, .9);
+    --clr-white-transparent: rgba(242, 235, 217, .9);
     --clr-discord: rgb(88, 101, 242);
     --clr-secondary: rgb(255, 60, 0);
     --clr-secondary-transparent: rgba(255, 60, 0, .5);
@@ -29,6 +28,7 @@ body {
 	background-color: var(--clr-white);
     color: var(--clr-black);
     font-family: var(--ff-text);
+    overflow-x: hidden;
 }
 
 a {
@@ -58,17 +58,11 @@ h1, h2, h3 {
     padding-block: 1rem;
     position: sticky;
     top: 0;
-    background-color: var(--clr-white-transparent-9);
+    background-color: var(--clr-white-transparent);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     z-index: 99999;
     border-bottom: 1px solid var(--clr-secondary);
-}
-
-@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
-    .main-header {
-        background-color: var(--clr-white-transparent);
-        -webkit-backdrop-filter: blur(10px);
-        backdrop-filter: blur(10px);
-    }
 }
 
 .logo {
@@ -417,7 +411,9 @@ button {
     position: fixed;
     bottom: 1rem;
     right: 1rem;
-    background-color: var(--clr-white-transparent-9);
+    background-color: var(--clr-white-transparent);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     border: 1px solid var(--clr-secondary);
     padding: 2rem;
     padding-top: 3.5rem;
@@ -425,14 +421,6 @@ button {
     margin-left: 1rem;
     transform: translateX(calc(100% + 2rem));
     transition: .2s;
-}
-
-@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
-    .indice {
-        background-color: var(--clr-white-transparent);
-        -webkit-backdrop-filter: blur(10px);
-        backdrop-filter: blur(10px);
-    }
 }
 
 .indice.active {
@@ -472,7 +460,9 @@ button {
     position: fixed;
     bottom: 1rem;
     right: 1rem;
-    background-color: var(--clr-white-transparent-9);
+    background-color: var(--clr-white-transparent);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     border: 1px solid var(--clr-secondary);
     padding: 1rem;
     border-radius: 1rem;
@@ -484,14 +474,6 @@ button {
     color: var(--clr-black);
 }
 
-@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
-    .indice-boton {
-        background-color: var(--clr-white-transparent);
-        -webkit-backdrop-filter: blur(10px);
-        backdrop-filter: blur(10px);
-    }
-}
-
 .indice-boton.inactive {
     transform: translateX(200px);
 }
@@ -500,7 +482,9 @@ button {
     position: absolute;
     top: .5rem;
     right: .5rem;
-    background-color: var(--clr-white-transparent-9);
+    background-color: var(--clr-white-transparent);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     border: 1px solid var(--clr-secondary);
     padding: .5rem 1rem;
     border-radius: .5rem;
@@ -508,14 +492,6 @@ button {
     font-weight: 600;
     font-family: var(--ff-text);
     color: var(--clr-black);
-}
-
-@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
-    .indice-cerrar {
-        background-color: var(--clr-white-transparent);
-        -webkit-backdrop-filter: blur(10px);
-        backdrop-filter: blur(10px);
-    }
 }
 
 
@@ -565,7 +541,9 @@ button {
     .nav-list {
         position: fixed;
         inset: 0;
-		background-color: var(--clr-white-transparent-9);
+        background-color: var(--clr-white-transparent);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
         flex-direction: column;
         text-align: right;
         align-items: end;
@@ -578,14 +556,6 @@ button {
         visibility: hidden;
         opacity: 0;
         transition: .2s;
-    }
-
-    @supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
-        .nav-list {
-            background-color: var(--clr-white-transparent);
-            -webkit-backdrop-filter: blur(10px);
-            backdrop-filter: blur(10px);
-        }
     }
 
     .nav-list.active {
@@ -712,6 +682,10 @@ button {
     }
     .info-canal .texto {
         margin-top: -.5rem;
+    }
+
+    .section-title, .footer-title {
+        font-size: 2rem;
     }
 }
 
