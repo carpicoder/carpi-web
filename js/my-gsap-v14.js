@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function(event) { window.onload = function() { window.requestAnimationFrame(function() {
+
 
 const isMobile = window.innerWidth <= 768; 
 const docStyle = getComputedStyle(document.documentElement);
@@ -422,6 +422,3 @@ allLinks.forEach((link) => {
     })
 
 })
-
-         
-})}})

@@ -58,11 +58,18 @@ h1, h2, h3 {
     padding-block: 1rem;
     position: sticky;
     top: 0;
+    z-index: 99999;
+    border-bottom: 1px solid var(--clr-secondary);
+}
+
+.main-header::before {
     background-color: var(--clr-white-transparent);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
-    z-index: 99999;
-    border-bottom: 1px solid var(--clr-secondary);
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
 }
 
 .logo {
@@ -541,9 +548,6 @@ button {
     .nav-list {
         position: fixed;
         inset: 0;
-        background-color: var(--clr-white-transparent);
-        -webkit-backdrop-filter: blur(10px);
-        backdrop-filter: blur(10px);
         flex-direction: column;
         text-align: right;
         align-items: end;
@@ -552,14 +556,15 @@ button {
         height: 100dvh;
         z-index: 1;
         gap: 2rem;
-        transform: translateX(100%);
         visibility: hidden;
         opacity: 0;
         transition: .2s;
+        background-color: var(--clr-white-transparent);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
     }
 
     .nav-list.active {
-        transform: translateX(0);
         visibility: visible;
         opacity: 1;
     }
